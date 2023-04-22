@@ -1,0 +1,144 @@
+@import './config';
+
+html,
+body {
+	background-color: #000;
+	color: $text;
+	scrollbar-width: thin;
+	scrollbar-color: #333 transparent;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0px;
+	margin-bottom: 0px;
+}
+
+a {
+	color: $text;
+	text-decoration: none;
+	&.active {
+		color: $text-pseudo;
+	}
+	&:hover {
+		color: $text-pseudo;
+	}
+}
+
+.page-content {
+	padding-top: 8em;
+	@media (min-width: 768px) {
+		padding-top: 4em;
+	}
+}
+
+/* width */
+::-webkit-scrollbar {
+	height: 8px;
+	width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #222;
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #333;
+}
+
+.main-nav {
+	background-color: rgba(0, 0, 0, 0.92);
+	top: 0px;
+	position: fixed;
+	z-index: 10;
+
+	& .active {
+		color: $text-pseudo;
+	}
+}
+
+.carousel-container {
+	margin: 0rem 2rem 0rem 2rem;
+	@media (min-width: 768px) {
+		margin: 0rem 4rem 0rem 4rem;
+	}
+	@media (min-width: 992px) {
+		margin: 0rem 6rem 0rem 6rem;
+	}
+	& .carousel {
+		position: relative;
+		& .carousel-scroll {
+			overflow: auto;
+			scrollbar-width: thin;
+			scrollbar-color: #333 transparent;
+		}
+		& .end-overflow {
+			position: absolute;
+			height: 100%;
+			width: 40px;
+			top: 0px;
+			right: 0px;
+			background-image: linear-gradient(to left, #000, rgba(0, 0, 0, 0));
+			opacity: 0;
+			transition: all 0.2s linear 0s;
+			&.visible {
+				opacity: 1;
+			}
+			@media (min-width: 768px) {
+				width: 70px;
+			}
+			@media (min-width: 992px) {
+				width: 100px;
+			}
+		}
+		& .start-overflow {
+			position: absolute;
+			height: 100%;
+			width: 40px;
+			top: 0px;
+			background-image: linear-gradient(to right, #000, rgba(0, 0, 0, 0));
+			opacity: 0;
+			transition: all 0.2s linear 0s;
+			&.visible {
+				opacity: 1;
+			}
+			@media (min-width: 768px) {
+				width: 70px;
+			}
+			@media (min-width: 992px) {
+				width: 100px;
+			}
+		}
+		& .content-item {
+			& small {
+				font-size: 75%;
+			}
+			& img {
+				transition: all 0.2s linear 0s;
+			}
+			&:hover {
+				& img {
+					transform: scale(110%);
+				}
+				& p,
+				small {
+					color: $text;
+				}
+			}
+			& .poster-container {
+				overflow: hidden;
+				border-radius: 4px;
+				width: 160px;
+			}
+		}
+	}
+}
+
